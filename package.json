@@ -1,0 +1,110 @@
+{
+  "name": "electron-react-parcel",
+  "version": "1.0.0",
+  "description": "Electron app build using ReactJS and Parcel web application bundler",
+  "main": "src/electron.js",
+  "scripts": {
+    "react-start": "parcel -p 3000 index.html --out-dir build",
+    "react-build": "parcel build index.html --out-dir build --public-url ./",
+    "electron-build": "electron-builder -mwl",
+    "clean-build": "rm -rf build/ .cache dist/",
+    "build": "yarn clean-build && yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron . \"",
+    "test-bundle": "bundlesize"
+  },
+  "bundlesize": [
+    {
+      "path": "./build/src.*.js",
+      "maxSize": "250 kB"
+    },
+    {
+      "path": "./build/src.*.css",
+      "maxSize": "100 kB"
+    }
+  ],
+  "keywords": [
+    "boskysoft",
+    "electron",
+    "react",
+    "parcel",
+    "electron-react-parcel",
+    "electron react parcel"
+  ],
+  "author": "Yogesh Kumar <yogesh@boskysoft.com>",
+  "license": "MIT",
+  "build": {
+    "appId": "com.boskysoft",
+    "files": [
+      "src/electron.js",
+      "src/assets/*",
+      "build/**/*"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "src/assets/logo.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/logo.png"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "src/assets/logo.png",
+      "category": "Development"
+    }
+  },
+  "homepage": "./",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "autoscroll-react": "^3.2.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "connected-react-router": "^6.8.0",
+    "electron-is-dev": "1.2.0",
+    "history": "^4.10.1",
+    "immutable": "^3.8.1 || ^4.0.0-rc.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^15.6.0 || ^16.0.0",
+    "react-bootstrap": "^1.0.0",
+    "react-country-region-selector": "^2.1.0",
+    "react-dom": "^16.13.1",
+    "react-identicons": "^1.2.4",
+    "react-infinite-scroller": "^1.2.4",
+    "react-loader-spinner": "^3.1.14",
+    "react-moment": "^0.9.7",
+    "react-particles-js": "^3.0.3",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-beacon-electron": "^1.0.1",
+    "redux-localstorage": "^0.4.1",
+    "redux-thunk": "^2.3.0",
+    "reset-css": "^5.0.1",
+    "seamless-immutable": "^7.1.3",
+    "semantic-ui-css": "2.4.1",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bundlesize": "^0.18.0",
+    "concurrently": "^5.0.2",
+    "cross-env": "7.0.2",
+    "electron": "^8.2.3",
+    "electron-builder": "^22.5.1",
+    "electron-devtools-installer": "^3.0.0",
+    "parcel-bundler": "^1.12.4",
+    "wait-on": "4.0.2"
+  }
+}

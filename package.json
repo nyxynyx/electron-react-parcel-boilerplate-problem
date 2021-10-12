@@ -101,7 +101,7 @@
     "bundlesize": "^0.18.0",
     "concurrently": "^5.0.2",
     "cross-env": "7.0.2",
-    "electron": "^8.2.3",
+    "electron": "^11.5.0",
     "electron-builder": "^22.5.1",
     "electron-devtools-installer": "^3.0.0",
     "parcel-bundler": "^1.12.4",
